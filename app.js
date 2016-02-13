@@ -30,8 +30,8 @@ const connect = () => {
   mongoose.connect('mongodb://localhost/qolk', options);
 };
 connect();
-mongoose.connection.on('error', process.stdout.write);
-mongoose.connection.on('connected', process.stdout.write);
+mongoose.connection.on('error', console.error);
+mongoose.connection.on('connected', console.error);
 mongoose.connection.on('disconnected', connect);
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
