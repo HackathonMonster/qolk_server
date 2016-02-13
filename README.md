@@ -3,7 +3,7 @@ Inform you about the humidity, temperature and alcohol of the wine which capped 
 
 ## POST
 type: json
-endpoint: /update
+endpoint: /
 ```
 {
   humidity: 54.03,
@@ -14,6 +14,7 @@ endpoint: /update
 
 ## GET
 type: json
+endpoint: /
 ```
 {
   humidity: 54.03,
