@@ -1,0 +1,28 @@
+{
+  "name": "qolk_server",
+  "version": "1.0.0",
+  "description": "Inform you about the humidity, temperature and alcohol of the wine which capped Qolk.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "helmet": "^1.1.0",
+    "mongoose": "^4.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackathonMonster/qolk_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackathonMonster/qolk_server/issues"
+  },
+  "homepage": "https://github.com/HackathonMonster/qolk_server#readme"
+}
