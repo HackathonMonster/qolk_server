@@ -11,7 +11,7 @@ const qolk = {
     qolk.humidity = req.body.humidity;
     qolk.alcohol = req.body.alcohol;
     qolk.save();
-    res.status(200);
+    res.status(200).json();
   },
   get: (req, res, next) => {
     Qolk.find({}, {}, {
