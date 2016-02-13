@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Qolk = mongoose.model('Qolk');
 
 const qolk = {
-  update: (req, res) => {
+  post: (req, res) => {
     const qolk = new Qolk();
     qolk.date = new Date();
     qolk.temperature = req.body.temperature;

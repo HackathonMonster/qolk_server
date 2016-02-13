@@ -1,13 +1,12 @@
 'use strict';
 
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
-const controllers = require('controllers');
 
 app.use(helmet());
 app.use(cors({
@@ -31,15 +30,19 @@ const connect = () => {
   mongoose.connect('mongodb://localhost/qolk', options);
 };
 connect();
-mongoose.connection.on('error', process.stdout);
-mongoose.connection.on('connected', process.stdout);
+mongoose.connection.on('error', process.stdout.write);
+mongoose.connection.on('connected', process.stdout.write);
 mongoose.connection.on('disconnected', connect);
 process.on('SIGINT', () => {
   mongoose.connection.close(() => {
     process.exit(0);
   });
 });
+fs.readdirSync(`${__dirname}/models`).forEach((file) => {
+  if (~file.indexOf('.js')) require(`${__dirname}/models/${file}`);
+});
 
+const controllers = require('./controllers');
 app.get('/', controllers.get);
 app.post('/', controllers.post);
 
